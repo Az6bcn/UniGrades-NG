@@ -10,17 +10,16 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    customCommand: 'install'
 
 - task: Npm@1
   inputs:
     command: 'custom'
     customCommand: 'install -g @angular/cli'
 
-- task: Npm@1
-  inputs:
-    command: 'custom'
-    customCommand: 'install'
 
 - task: Npm@1
   inputs:
