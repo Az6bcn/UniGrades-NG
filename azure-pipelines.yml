@@ -17,15 +17,15 @@ steps:
 - task: Npm@1
   inputs:
     command: 'custom'
-    customCommand: 'install'
+    customCommand: 'sudo npm install'
 
 - task: Npm@1
   inputs:
     command: 'custom'
-    customCommand: 'install -g @angular/cli'
+    customCommand: 'sudo install -g @angular/cli'
 
 
 - task: Npm@1
   inputs:
     command: 'custom'
-    customCommand: 'ng build'
+    customCommand: 'sudo ng build'
