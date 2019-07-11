@@ -28,4 +28,4 @@ steps:
 - task: Npm@1
   inputs:
     command: 'custom'
-    customCommand: 'run-script build'
+    customCommand: 'ng build'
