@@ -1,0 +1,42 @@
+.size{
+  max-width: 30% !important;
+}
+.shadow-lg{
+  box-shadow: 0 2rem 1.5rem -1.5rem rgba(33,37,41,.15),0 0 1.5rem .5rem rgba(33,37,41,.05)!important
+}
+.card{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .5rem;
+}
+.yellow {
+  background-color: #ffc107;
+}
+.red {
+  background-color: #dd3d31;
+}
+.green {
+  background-color: #28a745;
+}
+.container-center{
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 80%;
+  display: flex;
+  align-self: center;
+  align-items: center; /*centers items on the cross-axis (y by default)*/
+}
+.row-card{
+  margin-right: -40px;
+  margin-left: 15%;
+}
+.text-color{
+  color: #ffffff
+}
