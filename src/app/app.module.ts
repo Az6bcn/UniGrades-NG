@@ -1,3 +1,4 @@
+import { CoreModule } from './Core/Core.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -25,7 +26,8 @@ export function tokenGetter() {
         tokenGetter: tokenGetter,
         whitelistedDomains: [environment.baseURL, environment.authBaseURL]
       }
-    })
+    }),
+    CoreModule // Core Module
   ],
   providers: [],
   bootstrap: [AppComponent]
