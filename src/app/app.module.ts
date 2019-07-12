@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { NotifierModule } from 'angular-notifier';
 import { JwtModule } from '@auth0/angular-jwt';
 import { environment } from 'src/environments/environment';
+import { CoursesGradesComponent } from './Features/Components/courses-grades/courses-grades.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -15,7 +16,8 @@ export function tokenGetter() {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CoursesGradesComponent
   ],
   imports: [
     BrowserModule,
