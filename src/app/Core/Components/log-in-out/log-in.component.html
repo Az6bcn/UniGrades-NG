@@ -1,0 +1,24 @@
+<ul class="navbar-nav ml-auto">
+  <li class="nav-item active">
+      <ng-container *ngIf="!isLoggedIn()">
+    <span class="nav-link active myClickableTag" (click)='logIn()'>Login
+    </span>
+  </ng-container>
+  </li>
+  <li class="nav-item">
+      <ng-container *ngIf="!isLoggedIn()">
+    <span class="nav-link myClickableTag" href="#">Register</span>
+  </ng-container>
+  </li>
+  <li class="nav-item active">
+    <ng-container *ngIf="isLoggedIn()">
+      <span class="nav-link active" >Hi, {{getLoggedInUser().name}}
+      </span>
+    </ng-container>
+  </li>
+  <li class="nav-item">
+    <ng-container *ngIf="isLoggedIn()">
+      <span class="nav-link" (click)='logOut()'>Log Out</span>
+    </ng-container>
+  </li>
+</ul>

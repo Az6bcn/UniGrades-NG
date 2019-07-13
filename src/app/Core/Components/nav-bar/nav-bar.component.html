@@ -1,44 +1,30 @@
- <!-- Navigation -->
- <nav class="navbar navbar-expand-lg navbar-dark bg-primary static-top">
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary static-top">
   <div class="container">
     <a class="navbar-brand" href="#">UniGrades</a>
-    <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-            <a class="nav-link" href="#">Courses-Grades
-            </a>
-          </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Courses
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Contact</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Login</a>
-      </li>
-    </ul>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
+    <ng-container *ngIf="isLoggedIn()">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link active" href="#">Login
+        <li class="nav-item ">
+          <a class="nav-link" href="#">Courses-Grades
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="#">Courses
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Register</a>
-        </li>
-
-        <li class="nav-item active">
-          <a class="nav-link active" href="#">Hi User
-          </a>
+          <a class="nav-link" href="#">Contact</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Log Out</a>
+          <a class="nav-link" href="#">About</a>
         </li>
       </ul>
-    </div>
+    </ng-container>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+      aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive"></div>
+    <app-log-in></app-log-in>
   </div>
 </nav>

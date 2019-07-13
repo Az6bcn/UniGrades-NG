@@ -5,7 +5,18 @@
 export const environment = {
   production: false,
   authBaseURL: 'http://172.16.172.129:5000',
-  baseURL: 'http://172.16.172.129:5003/api'
+  baseURL: 'http://172.16.172.129:5003/api',
+  oidcClientSettings: {
+    authority: 'http://172.16.172.129:5000', // AuthServer URL, Identity Server URL (OIDC/OAuth2 provider)
+      client_id: 'unigrades-ng001', // client id as registered with Identity Server i.e OIDC/OAuth2 provider.
+      redirect_uri: 'http://localhost:4200/auth-callback', // The redirect URI to receive a response from Identity Server.
+      response_type: 'id_token token', // The type of response desired from Identity Server i.e OIDC/OAuth2 provider.
+      post_logout_redirect_uri: 'http://localhost:4200/signout-callback-oidc',
+      filterProtocolClaims: false,
+      loadUserInfo: true,
+      automaticSilentRenew: true,
+      scope: 'openid profile ' // Scopes being requested from Identity Server i.e OIDC/OAuth2 provider.
+  }
 };
 
 /*
