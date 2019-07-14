@@ -1,3 +1,4 @@
+import { SharedModule } from './../../Shared/Shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -10,7 +11,8 @@ import { GradesComponent } from './Components/grades/grades.component';
 @NgModule({
   imports: [
     CommonModule,
-    SubjectRoutingModule
+    SubjectRoutingModule,
+    SharedModule
   ],
   declarations: [
     CoursesComponent,
