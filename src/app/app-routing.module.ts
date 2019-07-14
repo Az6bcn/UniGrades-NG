@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './Core/Components/home/home.component';
 import { RegisterComponent } from './Core/Components/register/register.component';
 import { SignoutCallbackOidcComponent } from './Core/Components/signout-callback-oidc/signout-callback-oidc.component';
+import { AuthGuard } from './Core/Guards/auth.guard';
 
 
 const routes: Routes = [
@@ -13,10 +14,12 @@ const routes: Routes = [
       component: DefaultComponent
   },
   {   path: 'home',
-      component: HomeComponent
+      component: HomeComponent,
+      canActivate: [AuthGuard]
   },
   {   path: 'register',
-      component: RegisterComponent
+      component: RegisterComponent,
+      canActivate: [AuthGuard]
   },
   {   path: 'auth-callback',
       component: AuthCallbackComponent
@@ -25,12 +28,13 @@ const routes: Routes = [
       component: SignoutCallbackOidcComponent
   },
   {   path: 'courses',
-      loadChildren: () => import('./Features/subject/subject-routing.module')
-                          .then(mod => mod.SubjectRoutingModule)
+      loadChildren: () => import('./Features/subject/subject.module')
+                          .then(mod => mod.SubjectModule),
+      canActivate: [AuthGuard]
   },
   {
       path: '**',
-      component: HomeComponent
+      component: DefaultComponent
 
   }
 ];

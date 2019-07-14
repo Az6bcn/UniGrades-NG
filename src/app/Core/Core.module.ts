@@ -8,11 +8,19 @@ import { LogInComponent } from './Components/log-in-out/log-in.component';
 import { AuthCallbackComponent } from './Components/auth-callback/auth-callback.component';
 import { SignoutCallbackOidcComponent } from './Components/signout-callback-oidc/signout-callback-oidc.component';
 
+
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [NavBarComponent, HomeComponent, DefaultComponent, RegisterComponent, LogInComponent, AuthCallbackComponent, SignoutCallbackOidcComponent],
+  declarations: [
+    NavBarComponent,
+    HomeComponent,
+    DefaultComponent,
+    RegisterComponent,
+    LogInComponent,
+    AuthCallbackComponent,
+    SignoutCallbackOidcComponent],
   exports: [NavBarComponent, HomeComponent]
 })
 export class CoreModule { }
