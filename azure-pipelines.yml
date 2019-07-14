@@ -15,17 +15,17 @@ steps:
     versionSpec: '10.x'
 
 - task: Npm@1
+  displayName: 'npm install'
   inputs:
-    command: 'custom'
-    customCommand: 'sudo npm install'
+    command: 'install'
 
 - task: Npm@1
   inputs:
     command: 'custom'
-    customCommand: 'sudo install -g @angular/cli'
+    customCommand: 'npm install -g @angular/cli'
 
 
 - task: Npm@1
   inputs:
     command: 'custom'
-    customCommand: 'sudo ng build'
+    customCommand: 'run build -- --prod'
