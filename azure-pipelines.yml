@@ -19,11 +19,6 @@ steps:
   inputs:
     command: 'install'
 
-- task: Npm@1
-  inputs:
-    command: 'custom'
-    customCommand: 'npm install -g @angular/cli'
-
 
 - task: Npm@1
   inputs:
