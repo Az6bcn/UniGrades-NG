@@ -27,8 +27,10 @@ returnURL: string;
 
     if (user && this.authService.thereIsAUserLoggedIn) {
       const returnURL = sessionStorage.getItem('returnURL');
-      this.router.navigate([returnURL]);
-      sessionStorage.removeItem('returnURL');
+      this.router.navigate([returnURL || '../home']);
+      if (returnURL) {
+        sessionStorage.removeItem('returnURL');
+      }
     }
     else {
       this.router.navigate(['../default']);

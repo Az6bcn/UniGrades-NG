@@ -49,7 +49,6 @@ export class AuthenticationService {
 
   async processAuthServerLogOutCallbackResponse() {
     await this._usermanager.signoutRedirectCallback();
-
     localStorage.removeItem('token');
   }
   thereIsAUserLoggedIn(): boolean {
