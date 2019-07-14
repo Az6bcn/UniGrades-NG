@@ -3,20 +3,27 @@ import { HttpClient } from '@angular/common/http';
 import { UserManager, User } from 'oidc-client';
 import { environment } from 'src/environments/environment';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { Subject, BehaviorSubject } from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
-// tslint:disable-next-line:variable-name
-private _usermanager = new UserManager(environment.oidcClientSettings);
-private user: User;
+  // tslint:disable-next-line:variable-name
+  private _usermanager = new UserManager(environment.oidcClientSettings);
+  private user: User;
+
+  private isLoggedIn = new Subject<boolean>();
+
+  isLoggedIn$ = this.isLoggedIn.asObservable();
+  returnUrlSubject = new BehaviorSubject<string>('xxx');
+
   constructor(private jwtHelperService: JwtHelperService) { }
 
-async logIn() {
-  await this._usermanager.signinRedirect();
-}
+  async logIn() {
+    await this._usermanager.signinRedirect();
+  }
 
   /**
    * Process response from the authorization endpoint. i.e receives and handles incoming tokens,
@@ -29,7 +36,9 @@ async logIn() {
     if (this.user) {
       const token = this.user.access_token;
       localStorage.setItem('token', token);
+      this.isLoggedIn.next(true);
     }
+    return this.user;
   }
 
   logOut() {
@@ -45,6 +54,10 @@ async logIn() {
   }
   thereIsAUserLoggedIn(): boolean {
     const token = localStorage.getItem('token');
+    if (!token) {
+      return false;
+    }
     return !this.jwtHelperService.isTokenExpired(token);
   }
+
 }

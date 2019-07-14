@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { NotifierModule } from 'angular-notifier';
 import { JwtModule } from '@auth0/angular-jwt';
 import { environment } from 'src/environments/environment';
+import { SubjectModule } from './Features/subject/subject.module';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -29,7 +30,8 @@ export function tokenGetter() {
         throwNoTokenError: true
       }
     }),
-    CoreModule // Core Module
+    CoreModule, // Core Module,
+    SubjectModule  // FeatureModule
   ],
   providers: [],
   bootstrap: [AppComponent]
