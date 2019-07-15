@@ -8,6 +8,10 @@ import { NotifierModule } from 'angular-notifier';
 import { JwtModule } from '@auth0/angular-jwt';
 import { environment } from 'src/environments/environment';
 import { SubjectModule } from './Features/subject/subject.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
+
+
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -31,7 +35,9 @@ export function tokenGetter() {
       }
     }),
     CoreModule, // Core Module,
-    SubjectModule  // FeatureModule
+    SubjectModule,  // FeatureModule,
+    AccordionModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
