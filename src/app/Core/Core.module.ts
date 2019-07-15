@@ -1,3 +1,4 @@
+import { SharedModule } from './../Shared/Shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
@@ -11,7 +12,8 @@ import { SignoutCallbackOidcComponent } from './Components/signout-callback-oidc
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    SharedModule
   ],
   declarations: [
     NavBarComponent,
@@ -21,6 +23,6 @@ import { SignoutCallbackOidcComponent } from './Components/signout-callback-oidc
     LogInComponent,
     AuthCallbackComponent,
     SignoutCallbackOidcComponent],
-  exports: [NavBarComponent, HomeComponent]
+  exports: [NavBarComponent]
 })
 export class CoreModule { }
