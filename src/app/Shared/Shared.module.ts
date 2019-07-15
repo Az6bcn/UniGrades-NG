@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AcordionComponent } from './Components/acordion/acordion.component';
+import { TableListComponent } from './Components/table-list/table-list.component';
+import { TableItemComponent } from './Components/table-item/table-item.component';
+import { SpinnerComponent } from './Components/spinner/spinner.component';
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [AcordionComponent],
-  exports: [AcordionComponent]
+  declarations: [
+    TableListComponent,
+    TableItemComponent,
+    SpinnerComponent],
+  exports: [SpinnerComponent]
 })
 export class SharedModule { }
