@@ -1,0 +1,14 @@
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Percentage (%)</th>
+      <th scope="col">Grade</th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let grade of data">
+    <tr app-courses-grade-item [data] = grade></tr>
+    </tbody>
+  </table>
+

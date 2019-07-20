@@ -1,5 +1,24 @@
-<accordion [isAnimated]="true">
-  <accordion-group heading="Static Header">
-    This content is straight in the template.
-  </accordion-group>
-</accordion>
+<div class='container text-center text-muted'>
+<h1>Academic Year {{getYear()}}</h1>
+</div>
+
+<div class='container container-accordion-margin'>
+  <ng-container *ngFor='let courseGrade of coursesGrades'>
+    <accordion [isAnimated]="true">
+      <accordion-group class='font-weight-bold' heading='{{courseGrade.subjectName}}'>
+        <div class='row'>
+          <div class='col-sm-5'>
+            <app-courses-grade-list [data]='courseGrade.grades'></app-courses-grade-list>
+            <div [ngClass]='getGradeClasses(courseGrade.average)'> {{courseGrade.average}}
+              <i [ngClass]='getFontIconClasses(courseGrade.average)'></i>
+            </div>
+          </div>
+          <div class='col-sm-7'>
+            <app-pie-chart class='pie-chart' [data]='courseGrade.grades'>
+            </app-pie-chart>
+          </div>
+        </div>
+      </accordion-group>
+    </accordion>
+  </ng-container>
+</div>

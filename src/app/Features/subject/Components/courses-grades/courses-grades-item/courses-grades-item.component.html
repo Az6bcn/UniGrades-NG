@@ -1,0 +1,12 @@
+<ng-container *ngIf='data'>
+
+      <td>{{ data.percentageName }}</td>
+      <td class='text-left'>{{ data.percentage}}{{'%'}}</td>
+      <td>{{ data.grade }}</td>
+
+
+</ng-container>
+
+<ng-container *ngIf='data.length === 0'>
+  <app-spinner></app-spinner>
+</ng-container>

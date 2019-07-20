@@ -1,0 +1,14 @@
+.color-pass{
+  color: #84f542
+}
+.color-fail{
+  color:#f55442;
+}
+.container-accordion-margin{
+  margin-top: 5%;
+}
+.pie-chart{
+  display: block;
+  height: 320px;
+  width: 650px;
+}
