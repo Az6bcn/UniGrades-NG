@@ -11,7 +11,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~8.1.0",
+    "@angular/animations": "^8.1.2",
     "@angular/common": "~8.1.0",
     "@angular/compiler": "~8.1.0",
     "@angular/core": "~8.1.0",
@@ -22,8 +22,11 @@
     "@auth0/angular-jwt": "^2.1.1",
     "angular-notifier": "^4.1.1",
     "bootstrap": "^4.3.1",
+    "chart.js": "^2.8.0",
+    "moment": "^2.24.0",
     "ngx-bootstrap": "^5.1.0",
     "oidc-client": "^1.8.2",
+    "primeng": "^8.0.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"

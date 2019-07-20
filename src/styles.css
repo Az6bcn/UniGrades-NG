@@ -7,3 +7,7 @@
 @import '~angular-notifier/styles/types/type-warning.css';
 @import '~angular-notifier/styles/types/type-error.css';
 @import '~@fortawesome/fontawesome-free/css/all.css';
+
+/*@import '~primeicons/primeicons.css';*/
+@import '~primeng/resources/themes/nova-light/theme.css';
+@import 'primeng/resources/primeng.min.css';

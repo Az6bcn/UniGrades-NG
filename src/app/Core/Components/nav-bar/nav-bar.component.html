@@ -5,18 +5,18 @@
     <ng-container *ngIf="isLoggedIn()">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item ">
-          <a class="nav-link" href="#">Courses-Grades
+          <a class="nav-link" routerLink='courses/courses-grades' routerLinkActive="active">Courses-Grades
           </a>
         </li>
         <li class="nav-item ">
-          <a class="nav-link" href="#">Courses
+          <a class="nav-link" routerLink='/courses' routerLinkActive="active">Courses
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
+          <a class="nav-link" routerLink="['/contact']" routerLinkActive="active">Contact</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
+          <a class="nav-link" routerLink="['/about']" routerLinkActive="active">About</a>
         </li>
       </ul>
     </ng-container>

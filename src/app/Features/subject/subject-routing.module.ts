@@ -5,11 +5,11 @@ import { CoursesGradesComponent } from './Components/courses-grades/courses-grad
 
 
 const routes: Routes = [
-  { path: '',
+  {
+    path: 'courses-grades',
     component: CoursesGradesComponent
   },
-  {
-    path: 'my-courses',
+  { path: '',
     component: CoursesComponent
   }
 ];

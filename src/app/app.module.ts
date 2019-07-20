@@ -10,6 +10,8 @@ import { environment } from 'src/environments/environment';
 import { SubjectModule } from './Features/subject/subject.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 
@@ -24,6 +26,7 @@ export function tokenGetter() {
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     NotifierModule, // angular notifier
     JwtModule.forRoot({
@@ -31,7 +34,7 @@ export function tokenGetter() {
         tokenGetter: tokenGetter,
         whitelistedDomains: [environment.baseURL, environment.authBaseURL],
         skipWhenExpired: true,
-        throwNoTokenError: true
+        throwNoTokenError: true,
       }
     }),
     CoreModule, // Core Module,

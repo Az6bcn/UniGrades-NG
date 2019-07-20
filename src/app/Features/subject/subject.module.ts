@@ -1,3 +1,5 @@
+import { CoursesGradesItemComponent } from './Components/courses-grades/courses-grades-item/courses-grades-item.component';
+import { CoursesGradeListComponent } from './Components/courses-grades/courses-grade-list/courses-grade-list.component';
 import { SharedModule } from './../../Shared/Shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -20,7 +22,9 @@ import { AccordionModule } from 'ngx-bootstrap/accordion';
   declarations: [
     CoursesComponent,
     CoursesGradesComponent,
-    GradesComponent
+    GradesComponent,
+    CoursesGradeListComponent,
+    CoursesGradesItemComponent
   ]
 })
 export class SubjectModule { }
