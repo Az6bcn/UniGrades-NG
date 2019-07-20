@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TableListComponent } from './Components/table-list/table-list.component';
-import { TableItemComponent } from './Components/table-item/table-item.component';
 import { SpinnerComponent } from './Components/spinner/spinner.component';
+import { PieChartComponent } from './Components/pie-chart/pie-chart.component';
+import {ChartModule} from 'primeng/chart';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    ChartModule
   ],
   declarations: [
-    TableListComponent,
-    TableItemComponent,
-    SpinnerComponent],
-  exports: [SpinnerComponent]
+    SpinnerComponent,
+    PieChartComponent],
+  exports: [SpinnerComponent, PieChartComponent]
 })
 export class SharedModule { }
