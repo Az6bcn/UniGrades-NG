@@ -1,3 +1,4 @@
+import { Subject } from './../Models/Subject';
 import { SubjectGrades } from 'src/app/Models/Subject-grades';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -18,6 +19,16 @@ export class SubjectsService {
     const url = `${this.baseUrl}/subjects/subjectsgrades/${userId}`;
 
     return this.http.get<Array<SubjectGrades>>(url)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  GetSubjects(userId: string): Observable<Array<Subject>> {
+
+    const url = `${this.baseUrl}/subjects/${userId}`;
+
+    return this.http.get<Array<Subject>>(url)
       .pipe(
         catchError(this.handleError)
       );
