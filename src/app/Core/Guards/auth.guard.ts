@@ -10,19 +10,32 @@ export class AuthGuard implements CanActivate {
 
   constructor(private authService: AuthenticationService,
               private router: Router,
-              private notifierService: NotifierService) {}
+              private notifierService: NotifierService) { }
   canActivate(activatedRoute: ActivatedRouteSnapshot,
               routerState: RouterStateSnapshot): boolean {
 
-      const returnURL = routerState.url;
+    const returnURL = routerState.url;
 
-      if (this.authService.thereIsAUserLoggedIn()) {
-        return true;
-      }
+    if (this.authService.thereIsAUserLoggedIn()) {
+      return true;
+    }
 
-      this.notifierService.notify('error', 'You need to be logged in to access this area');
-      this.router.navigate(['../'], {queryParams: { returnURL}});
-      return false;
+    this.notifierService.notify('error', 'You need to be logged in to access this area');
+    this.router.navigate(['../'], { queryParams: { returnURL } });
+    return false;
   }
 
+  canActivateChild(activatedRoute: ActivatedRouteSnapshot,
+                   routerState: RouterStateSnapshot): boolean {
+
+    const returnURL = routerState.url;
+
+    if (this.authService.thereIsAUserLoggedIn()) {
+      return true;
+    }
+
+    this.notifierService.notify('error', 'You need to be logged in to access this area');
+    this.router.navigate(['../'], { queryParams: { returnURL } });
+    return false;
+  }
 }
