@@ -16,8 +16,8 @@
             Current Average : {{course.totalPercentage}}
           </p>
           <a tooltip="Add Grade" (click)='addGrade(course.id)'> <i class="fas fa-plus fa-2x mr-5 "></i></a>
-          <a tooltip="Edit Course" (click)='addGrade(course)'><i class="fas fa-edit fa-2x mr-5"></i></a>
-          <a tooltip="Delete Course" (click)='addGrade(course.id)'><i class="fas fa-trash fa-2x mr-5"></i></a>
+          <a tooltip="Edit Course" (click)='editCourse(course)'><i class="fas fa-edit fa-2x mr-5"></i></a>
+          <a tooltip="Delete Course" (click)='deleteCourse(course.id)'><i class="fas fa-trash fa-2x mr-5"></i></a>
         </div>
       </div>
     </ng-container>

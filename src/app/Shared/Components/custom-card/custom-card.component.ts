@@ -16,7 +16,6 @@ export class CustomCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.courses);
   }
   addGrade(courseId: number) {
     this.addgrade.emit(courseId);
