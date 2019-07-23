@@ -2,10 +2,11 @@ import { Subject } from './../Models/Subject';
 import { SubjectGrades } from 'src/app/Models/Subject-grades';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
+import { Observable, throwError, } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { catchError } from 'rxjs/operators';
-
+import {Response} from './../Models/Response';
+import { Grade } from '../Models/Grade';
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +34,36 @@ export class SubjectsService {
         catchError(this.handleError)
       );
   }
+
+  AddSubject(subject: Subject) {
+    const url = `${this.baseUrl}/subjects`;
+
+    return this.http.post<Response<Subject>>(url, subject)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+
+
+  DeleteCourse(courseId: number): Observable<Response<Subject>> {
+    const url = `${this.baseUrl}/subjects/${courseId}`;
+
+    return this.http.delete<Response<Subject>>(url)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  EditCourse(course: Subject) {
+    const url = `${this.baseUrl}/subjects`;
+
+    return this.http.put<Response<Subject>>(url, course)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
 
   private handleError(error: HttpErrorResponse) {
 
