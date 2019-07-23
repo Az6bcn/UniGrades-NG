@@ -1,7 +1,25 @@
-<div class="card border-primary text-white bg-dark mb-3" style="max-width: 18rem;">
-    <div class="card-header">Header</div>
-    <div class="card-body">
-      <h5 class="card-title">Dark card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
+<div class='container'>
+  <div class='row'>
+    <ng-container *ngFor='let course of courses'>
+      <div class="card border-primary text-white bg-dark mb-3 card-margin" style="max-width: 18rem;">
+        <div class="card-header">
+          <h5 class="card-title">{{course.subjectName}}</h5>
+        </div>
+        <div class="card-body">
+          <p class="card-text text-center">
+            Total Percentage: {{course.totalPercentage}}
+          </p>
+          <p class="card-text text-center">
+            Covered Percentage : {{course.totalPercentage}}
+          </p>
+          <p class="card-text text-center">
+            Current Average : {{course.totalPercentage}}
+          </p>
+          <a tooltip="Add Grade" (click)='addGrade(course.id)'> <i class="fas fa-plus fa-2x mr-5 "></i></a>
+          <a tooltip="Edit Course" (click)='addGrade(course)'><i class="fas fa-edit fa-2x mr-5"></i></a>
+          <a tooltip="Delete Course" (click)='addGrade(course.id)'><i class="fas fa-trash fa-2x mr-5"></i></a>
+        </div>
+      </div>
+    </ng-container>
   </div>
+</div>
