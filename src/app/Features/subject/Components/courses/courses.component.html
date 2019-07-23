@@ -1,1 +1,11 @@
-<p>courses works!</p>
+<ng-container *ngIf='courses && courses.length > 0'>
+  <div class='container'>
+    <app-custom-card [courses]='courses'
+    (addgrade)='addGrade($event)' (editcourse)='editCourse($event)'
+      (deletecourse)='deleteCourse($event)'></app-custom-card>
+  </div>
+</ng-container>
+
+<ng-container *ngIf='(isLoading$ | async)'>
+  <app-spinner></app-spinner>
+</ng-container>
