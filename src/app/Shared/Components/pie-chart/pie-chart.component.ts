@@ -11,7 +11,7 @@ export class PieChartComponent implements OnInit {
   @Input() set data(data: Array<Grade>) {
     this.dataPie = this.parsePieChartData(data);
   }
-data: any;
+
   constructor() { }
 
   ngOnInit() {

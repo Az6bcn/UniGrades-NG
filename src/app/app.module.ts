@@ -40,7 +40,7 @@ export function tokenGetter() {
     CoreModule, // Core Module,
     SubjectModule,  // FeatureModule,
     AccordionModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
