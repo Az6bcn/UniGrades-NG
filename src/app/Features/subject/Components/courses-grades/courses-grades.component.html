@@ -2,6 +2,11 @@
 <h1>Academic Year {{getYear()}}</h1>
 </div>
 
+<ng-container *ngIf='(isLoading$ | async)'>
+  <app-spinner></app-spinner>
+</ng-container>
+
+<ng-container *ngIf='!(isLoading$ | async)'>
 <div class='container container-accordion-margin'>
   <ng-container *ngFor='let courseGrade of coursesGrades'>
     <accordion [isAnimated]="true">
@@ -22,3 +27,4 @@
     </accordion>
   </ng-container>
 </div>
+</ng-container>

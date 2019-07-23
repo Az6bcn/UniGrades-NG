@@ -1,3 +1,4 @@
+import { BehaviorSubject } from 'rxjs';
 import { Grade } from './../../../../Models/Grade';
 import { UserService } from './../../../../Core/Services/user.service';
 import { SubjectsService } from './../../../../Services/subjects.service';
@@ -5,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
 import { SubjectGrades } from 'src/app/Models/Subject-grades';
 import { NotifierService } from 'angular-notifier';
 import * as moment from 'moment';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-courses-grades',
@@ -13,6 +15,7 @@ import * as moment from 'moment';
 })
 export class CoursesGradesComponent implements OnInit {
   coursesGrades: Array<SubjectGrades>;
+  isLoading$ = new BehaviorSubject<boolean>(true);
 
   constructor(private subjectService: SubjectsService,
               private notifierService: NotifierService,
@@ -23,12 +26,16 @@ export class CoursesGradesComponent implements OnInit {
     const userID = this.userService.currentUser().id;
 
     this.subjectService.GetSubjectGrades(userID)
+      .pipe(
+        finalize(() => this.isLoading$.next(false))
+      )
       .subscribe((response: Array<SubjectGrades>) => {
         this.coursesGrades = response;
         //this.parsePieChartData(([].concat(...[coursesGradesRes])));
       },
         error => {
-          this.notifierService.notify('error', 'Could not get list of subject-grades ......Please try again later');
+          console.log(error);
+          this.notifierService.notify('error', error.errorMessage);
         });
   }
 
