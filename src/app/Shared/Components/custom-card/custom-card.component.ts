@@ -10,15 +10,15 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class CustomCardComponent implements OnInit {
 @Input() courses: Array<Subject>;
 @Output() editcourse = new EventEmitter<Subject>();
-@Output() addgrade = new EventEmitter<number>();
+@Output() addgrade = new EventEmitter<Subject>();
 @Output() deletecourse = new EventEmitter<number>();
 
   constructor() { }
 
   ngOnInit() {
   }
-  addGrade(courseId: number) {
-    this.addgrade.emit(courseId);
+  addGrade(course: Subject) {
+    this.addgrade.emit(course);
   }
   editCourse(course: Subject) {
     this.editcourse.emit(course);
