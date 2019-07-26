@@ -9,6 +9,8 @@ import { CoursesComponent } from './Components/courses/courses.component';
 import { CoursesGradesComponent } from './Components/courses-grades/courses-grades.component';
 import { GradesComponent } from './Components/grades/grades.component';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { AddGradeModalComponent } from './Modals/add-grade-modal/add-grade-modal.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -17,14 +19,17 @@ import { AccordionModule } from 'ngx-bootstrap/accordion';
     CommonModule,
     SubjectRoutingModule,
     SharedModule,
-    AccordionModule
+    AccordionModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     CoursesComponent,
     CoursesGradesComponent,
     GradesComponent,
     CoursesGradeListComponent,
-    CoursesGradesItemComponent
+    CoursesGradesItemComponent,
+    AddGradeModalComponent,
   ]
 })
 export class SubjectModule { }
