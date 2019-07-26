@@ -11,6 +11,7 @@ import { SubjectModule } from './Features/subject/subject.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { HttpClientModule } from '@angular/common/http';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 
@@ -41,6 +42,7 @@ export function tokenGetter() {
     SubjectModule,  // FeatureModule,
     AccordionModule.forRoot(),
     BrowserAnimationsModule,
+    ModalModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
