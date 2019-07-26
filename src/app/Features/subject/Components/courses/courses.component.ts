@@ -4,9 +4,10 @@ import { BehaviorSubject } from 'rxjs';
 import { UserService } from './../../../../Core/Services/user.service';
 import { Subject } from './../../../../Models/Subject';
 import { SubjectsService } from './../../../../Services/subjects.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { finalize } from 'rxjs/operators';
 import { NotifierService } from 'angular-notifier';
+import { AddGradeModalComponent } from '../../Modals/add-grade-modal/add-grade-modal.component';
 
 @Component({
   selector: 'app-courses',
@@ -16,6 +17,8 @@ import { NotifierService } from 'angular-notifier';
 export class CoursesComponent implements OnInit {
 courses: Array<Subject>;
 isLoading$ = new BehaviorSubject<boolean>(true);
+setModalSpinnerToFalse: boolean;
+@ViewChild(AddGradeModalComponent, {static : true}) modalComponent: AddGradeModalComponent;
   constructor(private subjectService: SubjectsService,
               private userService: UserService,
               private gradeService: GradesService,
@@ -34,8 +37,8 @@ isLoading$ = new BehaviorSubject<boolean>(true);
       });
   }
 
-  addGrade(grade: Grade) {
-
+  addGrade(subject: Subject) {
+    this.modalComponent.openModal(subject);
   }
 
   addCourse(course: Subject, courseId: number) {
@@ -45,11 +48,11 @@ isLoading$ = new BehaviorSubject<boolean>(true);
     )
     .subscribe(response => {
       if (response.success) {
-        this.notifierService.notify('success', 'Deleted Successfully');
+        this.notifierService.notify('success', 'Added Successfully');
       }
     },
     error => {
-      this.notifierService.notify('success', error.error);
+      this.notifierService.notify('error', error.error);
     });
   }
   editCourse(course: Subject) {
@@ -63,7 +66,7 @@ isLoading$ = new BehaviorSubject<boolean>(true);
       }
     },
     error => {
-      this.notifierService.notify('success', error.error);
+      this.notifierService.notify('error', error.error);
     });
   }
   deleteCourse(courseId: number) {
@@ -80,7 +83,20 @@ isLoading$ = new BehaviorSubject<boolean>(true);
 
       },
       error => {
-        this.notifierService.notify('success', error.errorMessage);
+        this.notifierService.notify('error', error.errorMessage);
       });
+  }
+
+  saveGrade(newGrade: Grade) {
+    this.gradeService.AddGrade(newGrade)
+    .subscribe(response => {
+        this.setModalSpinnerToFalse = false;
+        this.notifierService.notify('success', 'Grade Added Successfully');
+    },
+    error => {
+      this.setModalSpinnerToFalse = false;
+      this.notifierService.notify('error', error.errorMessage);
+    });
+
   }
 }

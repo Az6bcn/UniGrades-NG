@@ -9,3 +9,6 @@
 <ng-container *ngIf='(isLoading$ | async)'>
   <app-spinner></app-spinner>
 </ng-container>
+
+
+<app-add-grade-modal (gradeFormValue)='saveGrade($event)' [isLoaded]='setModalSpinnerToFalse'></app-add-grade-modal>
