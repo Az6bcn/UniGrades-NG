@@ -27,7 +27,6 @@ export class PieChartComponent implements OnInit {
       randomColorsToPlotData.push(`#${Math.floor(Math.random() * 16777215).toString(16)}`);
     }
 
-    console.log(randomColorsToPlotData);
     return {
       labels: labelsToShow,
       datasets: [
