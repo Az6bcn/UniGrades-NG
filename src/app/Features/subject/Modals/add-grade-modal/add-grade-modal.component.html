@@ -1,0 +1,53 @@
+
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left text-center">Add Grade to {{subjectName}}</h4>
+    <button type="button" class="close pull-right " aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true"><i class="btn btn-danger fas fa-times"></i></span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="gradeFormGroup">
+        <div class="form-group">
+            <label for="percentagename">Percentage Name</label>
+            <input formControlName="percentageName" type="text" class="form-control" id="percentagename" placeholder="Enter Name">
+            <!-- Control Errors -->
+            <div *ngIf="(percentageName.touched || percentageName.dirty) && percentageName.invalid" class="alert alert-danger">
+                <!-- Control Required Errors -->
+                <div *ngIf='percentageName.errors.required'> This field is required </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="percentage">Percentage</label>
+            <input  formControlName="percentage" type="text" class="form-control" id="percentage" placeholder="Percentage">
+            <!-- Control Errors -->
+            <div *ngIf="(percentage.touched || percentage.dirty) && percentage.invalid" class="alert alert-danger">
+                <!-- Control Required Errors -->
+                <div *ngIf='percentage.errors.required'> This field is required </div>
+                <div *ngIf='percentage.errors.max'> The maximum percentage you can enter is 100% </div>
+                <div *ngIf='percentage.errors.min'> The minimum percentage you can enter is 1%  </div>
+            </div>
+          </div>
+          <div class="form-group">
+              <label for="grade">Grade</label>
+              <input formControlName="grade"  type="number" class="form-control" id="grade" placeholder="Grade">
+               <!-- Control Errors -->
+              <div *ngIf="(grade.touched || grade.dirty) && grade.invalid" class="alert alert-danger">
+                  <!-- Control Required Errors -->
+                  <div *ngIf='grade.errors.required'> This field is required </div>
+                  <div *ngIf='grade.errors.max'> The maximum grade you can enter is 10 </div>
+                  <div *ngIf='grade.errors.min'> The minimum grade you can enter is 0 </div>
+              </div>
+          </div>
+          <div class="row form-group" style="text-align:center;">
+              <button type="button" class="btn btn-danger text-center buttons-margins" (click)='closeModal()'>Cancel</button>
+              <button type="button" class="btn btn-primary text-center" [disabled]='isValid(gradeFormGroup)' (click)='save(gradeFormGroup.value)'>Save</button>
+          </div>
+          <ng-container *ngIf='(isLoading$ | async)'>
+              <app-spinner></app-spinner>
+            </ng-container>
+            {{isLoading$ | async | json}}
+    </form>
+  </div>
+</ng-template>
