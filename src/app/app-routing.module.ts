@@ -1,3 +1,4 @@
+import { AboutComponent } from './about/about.component';
 import { AuthCallbackComponent } from './Core/Components/auth-callback/auth-callback.component';
 import { DefaultComponent } from './Core/Components/default/default.component';
 import { NgModule } from '@angular/core';
@@ -6,6 +7,7 @@ import { HomeComponent } from './Core/Components/home/home.component';
 import { RegisterComponent } from './Core/Components/register/register.component';
 import { SignoutCallbackOidcComponent } from './Core/Components/signout-callback-oidc/signout-callback-oidc.component';
 import { AuthGuard } from './Core/Guards/auth.guard';
+import { ContactComponent } from './contact/contact.component';
 
 
 const routes: Routes = [
@@ -20,6 +22,12 @@ const routes: Routes = [
   {   path: 'register',
       component: RegisterComponent,
       canActivate: [AuthGuard]
+  },
+  {   path: 'contact',
+      component: ContactComponent
+  },
+  {   path: 'about',
+      component: AboutComponent
   },
   {   path: 'auth-callback',
       component: AuthCallbackComponent

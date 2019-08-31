@@ -12,10 +12,14 @@ export class CustomCardComponent implements OnInit {
 @Output() editcourse = new EventEmitter<Subject>();
 @Output() addgrade = new EventEmitter<Subject>();
 @Output() deletecourse = new EventEmitter<number>();
+@Output() addcourse = new EventEmitter<boolean>();
 
   constructor() { }
 
   ngOnInit() {
+  }
+  addCourse() {
+    this.addcourse.emit(true);
   }
   addGrade(course: Subject) {
     this.addgrade.emit(course);

@@ -1,14 +1,23 @@
-
 <table class="table table-striped">
-    <thead>
+  <thead>
     <tr>
       <th scope="col"></th>
       <th scope="col">Percentage (%)</th>
       <th scope="col">Grade</th>
     </tr>
-    </thead>
+  </thead>
+  <ng-container *ngIf='data.length > 0'>
     <tbody *ngFor="let grade of data">
-    <tr app-courses-grade-item [data] = grade></tr>
+      <ng-container *ngIf='grade.id > 0'>
+        <tr app-courses-grade-item [data]=grade></tr>
+      </ng-container>
     </tbody>
-  </table>
-
+  </ng-container>
+  <ng-container *ngIf='data.length === 0'>
+    <div class='text-center'>
+        No Grades Available.
+    <br/>
+        <span>Add grades to this Course from the Course tab.</span>
+    </div>
+  </ng-container>
+</table>

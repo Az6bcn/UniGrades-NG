@@ -16,7 +16,7 @@ export class AddGradeModalComponent implements OnInit {
   @Input()
   set isLoaded(isLoaded: boolean) {
     this.isLoading$.next(isLoaded);
-    if(isLoaded !== undefined) {
+    if (isLoaded !== undefined) {
       this.modalRef.hide();
     }
   }

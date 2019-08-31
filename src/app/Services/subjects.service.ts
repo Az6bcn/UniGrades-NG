@@ -64,6 +64,15 @@ export class SubjectsService {
       );
   }
 
+  GetSubjectById(id: number): Observable<Subject> {
+    const url = `${this.baseUrl}/subjects/${id}`;
+
+    return this.http.get<Subject>(url)
+      .pipe(
+        catchError(this.handleError)
+      );
+
+  }
 
   private handleError(error: HttpErrorResponse) {
 

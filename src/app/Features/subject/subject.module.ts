@@ -11,8 +11,9 @@ import { GradesComponent } from './Components/grades/grades.component';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { AddGradeModalComponent } from './Modals/add-grade-modal/add-grade-modal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-
+import { NewCourseComponent } from './Components/new-course/new-course.component';
+import {SelectModule} from 'ng-select';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 @NgModule({
   imports: [
@@ -21,7 +22,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SharedModule,
     AccordionModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SelectModule,
+    BsDatepickerModule.forRoot(),
+
   ],
   declarations: [
     CoursesComponent,
@@ -30,6 +34,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CoursesGradeListComponent,
     CoursesGradesItemComponent,
     AddGradeModalComponent,
+    NewCourseComponent,
   ]
 })
 export class SubjectModule { }

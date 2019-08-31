@@ -12,18 +12,23 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { HttpClientModule } from '@angular/common/http';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { ContactComponent } from './contact/contact.component';
+import { AboutComponent } from './about/about.component';
 
 
 
 
 export function tokenGetter() {
+  console.log(localStorage.getItem('token'));
   return localStorage.getItem('token');
 }
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ContactComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,9 +38,11 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        whitelistedDomains: [environment.baseURL, environment.authBaseURL],
+        whitelistedDomains: [environment.baseURL_String],
         skipWhenExpired: true,
         throwNoTokenError: true,
+        headerName: 'Authorization',
+        authScheme: 'Bearer '
       }
     }),
     CoreModule, // Core Module,
