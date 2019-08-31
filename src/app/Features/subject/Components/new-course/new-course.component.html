@@ -1,0 +1,62 @@
+<ng-container *ngIf='(isLoading$ | async)'>
+  <app-spinner></app-spinner>
+</ng-container>
+
+<div class='container d-flex justify-content-center' *ngIf ='!(isLoading$ | async)'>
+  <form [formGroup]="courseForm">
+      <h3 >{{title}}</h3>
+    <div class="form-group">
+      <label for="coursename">Course Name</label>
+      <input formControlName="subjectName" type="text" class="form-control" id="coursename"
+        placeholder="Enter Course Name">
+      <!-- Control Errors -->
+      <div *ngIf="(subjectname.touched || subjectname.dirty) && subjectname.invalid" class="alert alert-danger">
+        <!-- Control Required Errors -->
+        <div *ngIf='subjectname.errors.required'> This field is required </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="courseyear">Course Date</label>
+      <input formControlName="courseYear" type="text" bsDatepicker class="form-control" id="courseyear"
+        placeholder="Enter Course Starting Date"  [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY', containerClass: 'theme-blue' }">
+      <!-- Control Errors -->
+      <div *ngIf="(courseyear.touched || courseyear.dirty) && courseyear.invalid" class="alert alert-danger">
+        <!-- Control Required Errors -->
+        <div *ngIf='courseyear.errors.required'> This field is required </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="totalpercentage">Total Percentage</label>
+      <input formControlName="totalPercentage" type="text" class="form-control" id="totalpercentage"
+        placeholder="Enter Total Percentage">
+      <!-- Control Errors -->
+      <div *ngIf="(totalpercentage.touched || totalpercentage.dirty) && totalpercentage.invalid"
+        class="alert alert-danger">
+        <!-- Control Required Errors -->
+        <div *ngIf='totalpercentage.errors.required'> This field is required </div>
+      </div>
+    </div>
+
+    <div class="form-group ">
+      <label for="academicsemester">Academic Semester</label>
+      <ng-select formControlName="AcademicSemesterId"  placeholder="Select" id='academicsemester'
+        [options]="academicSemestersOptions" [allowClear]="true">
+      </ng-select>
+      <!-- Control Errors -->
+      <div *ngIf="(academicsemester.touched || academicsemester.dirty) && academicsemester.invalid"
+        class="alert alert-danger">
+        <!-- Control Required Errors -->
+        <div *ngIf='academicsemester.errors.required'> This field is required </div>
+        <!-- <div *ngIf='grade.errors.max'> The maximum grade you can enter is 10 </div>
+      <div *ngIf='grade.errors.min'> The minimum grade you can enter is 0 </div> -->
+      </div>
+    </div>
+    <div class="row form-group" style="text-align:center;">
+      <button type="button" class="btn btn-danger text-center buttons-margins" (click)='cancel()'>Cancel</button>
+      <button type="button" class="btn btn-primary text-center" [disabled]='isValid(courseForm)'
+        (click)='save(courseForm.value)'>Save</button>
+    </div>
+  </form>
+</div>
+
+
