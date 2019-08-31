@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   authBaseURL: 'http://172.16.172.157:5000',
   baseURL: 'http://172.16.172.157:5001/api',
+  baseURL_String: '172.16.172.157:5001',
   oidcClientSettings: {
     authority: 'http://172.16.172.157:5000', // AuthServer URL, Identity Server URL (OIDC/OAuth2 provider)
       client_id: 'unigrades-ng001', // client id as registered with Identity Server i.e OIDC/OAuth2 provider.
@@ -15,7 +16,7 @@ export const environment = {
       filterProtocolClaims: false,
       loadUserInfo: true,
       automaticSilentRenew: true,
-      scope: 'openid profile ' // Scopes being requested from Identity Server i.e OIDC/OAuth2 provider.
+      scope: 'openid profile unigradesapi.full_access' // Scopes being requested from Identity Server i.e OIDC/OAuth2 provider.
   }
 };
 
