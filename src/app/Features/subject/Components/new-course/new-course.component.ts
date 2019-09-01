@@ -41,7 +41,7 @@ export class NewCourseComponent implements OnInit {
       this.subjectService.GetSubjectById(id)
         .pipe(finalize(() => this.isLoading$.next(false)))
         .subscribe(resp => {
-          this.title = `Edit Course`;
+          this.title = 'Edit Course';
           this.courseForm = this.buildCourseForm(this.fb);
           this.courseForm.setValue({
                 subjectName: resp.subjectName,
@@ -53,7 +53,7 @@ export class NewCourseComponent implements OnInit {
         });
     }
     else {
-      this.title = `Add Course`;
+      this.title = 'Add Course';
       this.courseForm = this.buildCourseForm(this.fb);
       this.isLoading$.next(false);
 
@@ -103,7 +103,11 @@ export class NewCourseComponent implements OnInit {
   }
 
   cancel() {
-    this.router.navigate(['../my-courses'], {relativeTo: this.activatedRoute});
+    if (this.title === 'Edit Course') {
+      this.router.navigate(['../../my-courses'], {relativeTo: this.activatedRoute});
+    } else {
+      this.router.navigate(['../my-courses'], {relativeTo: this.activatedRoute});
+    }
   }
 
   buildCourseForm(builder: FormBuilder) {

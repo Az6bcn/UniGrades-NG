@@ -34,8 +34,12 @@ export class CoursesGradesComponent implements OnInit {
         //this.parsePieChartData(([].concat(...[coursesGradesRes])));
       },
         error => {
-          console.log(error);
-          this.notifierService.notify('error', error.errorMessage);
+          if (error === 'Unknown Error') {
+            this.notifierService.notify('error', 'something went wrong... please try again later');
+          }
+          else {
+            this.notifierService.notify('error', error.errorMessage);
+          }
         });
   }
 

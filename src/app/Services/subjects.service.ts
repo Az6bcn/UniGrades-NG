@@ -1,7 +1,7 @@
 import { Subject } from './../Models/Subject';
 import { SubjectGrades } from 'src/app/Models/Subject-grades';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, ɵConsole } from '@angular/core';
 import { Observable, throwError, } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { catchError } from 'rxjs/operators';
@@ -75,7 +75,9 @@ export class SubjectsService {
   }
 
   private handleError(error: HttpErrorResponse) {
-
+    if (error.statusText === 'Unknown Error') {
+      return throwError('Unknown Error');
+    }
     return throwError(error.error);
   }
 }

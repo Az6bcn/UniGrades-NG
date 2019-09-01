@@ -39,6 +39,14 @@ setModalSpinnerToFalse: boolean;
       )
       .subscribe((response: Array<Subject>) => {
         this.courses = response;
+      },
+      error => {
+        if (error === 'Unknown Error') {
+          this.notifierService.notify('error', 'something went wrong... please try again later');
+        }
+        else {
+          this.notifierService.notify('error', error.errorMessage);
+        }
       });
   }
 
@@ -51,7 +59,6 @@ setModalSpinnerToFalse: boolean;
   }
   editCourse(course: Subject) {
     this.cacheService.cachedData.next(course);
-    //this.cacheService.setTimer(2, course);
     this.router.navigate(['../edit-course' , course.id], {relativeTo: this.activatedRoute} );
   }
   deleteCourse(courseId: number) {
