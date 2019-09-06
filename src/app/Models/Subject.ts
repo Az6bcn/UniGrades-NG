@@ -6,4 +6,6 @@ export class Subject {
   totalPercentage: number;
   userId: string;
   academicSemesterId: number;
+  coveredPercentage: number;
+  currentAverage: number;
 }
