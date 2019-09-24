@@ -24,6 +24,7 @@ export class AuthCallbackComponent implements OnInit {
     // when route is active, check if the fragment # doesn,t contain error
     if (this.activatedRoute.snapshot.fragment.indexOf('error') >= 0) {
       this.notifierService.notify('error', 'Authentication not successful...... Please, try again later');
+      this.router.navigate(['../default']);
     }
 
     this.isLoading$.next(true);
