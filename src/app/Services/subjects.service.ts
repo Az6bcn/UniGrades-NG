@@ -56,7 +56,7 @@ export class SubjectsService {
   }
 
   EditCourse(course: Subject) {
-    const url = `${this.baseUrl}/subjects`;
+    const url = `${this.baseUrl}/subjects/${course.id}`;
 
     return this.http.put<Response<Subject>>(url, course)
       .pipe(

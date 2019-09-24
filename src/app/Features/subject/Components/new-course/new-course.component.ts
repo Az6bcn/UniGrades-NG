@@ -44,6 +44,7 @@ export class NewCourseComponent implements OnInit {
           this.title = 'Edit Course';
           this.courseForm = this.buildCourseForm(this.fb);
           this.courseForm.setValue({
+                id: resp.id,
                 subjectName: resp.subjectName,
                 courseYear: moment(resp.courseYear).format('MM/DD/YYYY'),
                 totalPercentage: resp.totalPercentage,
@@ -62,6 +63,10 @@ export class NewCourseComponent implements OnInit {
   }
 
   save(course: Subject) {
+    if (this.title === 'Edit Course') {
+      this.editCourse(course);
+      return;
+    }
     course.courseYear = moment(course.courseYear).format('MM-DD-YYYY');
     course.academicSemesterId = (course.academicSemesterId as number);
     this.subjectService.AddSubject(course)
@@ -86,6 +91,7 @@ export class NewCourseComponent implements OnInit {
     )
     .subscribe(response => {
       if (response.success) {
+        this.router.navigate(['../../my-courses'], {relativeTo: this.activatedRoute});
         this.notifierService.notify('success', 'Course Edited Successfully');
       }
     },
@@ -112,6 +118,7 @@ export class NewCourseComponent implements OnInit {
 
   buildCourseForm(builder: FormBuilder) {
     return builder.group({
+      id: [],
       subjectName: ['', Validators.required],
       courseYear: ['', Validators.required],
       totalPercentage: ['', Validators.required],
