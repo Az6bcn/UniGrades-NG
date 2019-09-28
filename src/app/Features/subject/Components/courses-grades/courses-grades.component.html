@@ -26,5 +26,18 @@
       </accordion-group>
     </accordion>
   </ng-container>
+
+<div class="row mt-5">
+  <div class="col-xs-12 col-12">
+    <pagination [totalItems]='paginationInfo.totalItems'
+                [rotate]="true"
+                [maxSize]="paginationInfo.totalPages"
+                [itemsPerPage]="paginationInfo.itemsPerPage"
+                [(ngModel)]='paginationInfo.currentPage'
+                (pageChanged)='pageChanged($event)'>
+    </pagination>
+  </div>
+</div>
 </div>
 </ng-container>
+

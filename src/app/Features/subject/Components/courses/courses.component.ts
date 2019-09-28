@@ -1,3 +1,4 @@
+import { PaginatedResult, PaginationInfo } from './../../../../Models/PaginationInfo';
 import { CacheService } from './../../../../Services/cache.service';
 import { Grade } from './../../../../Models/Grade';
 import { GradesService } from './../../../../Services/grades.service';
@@ -20,6 +21,7 @@ export class CoursesComponent implements OnInit {
 courses: Array<Subject>;
 isLoading$ = new BehaviorSubject<boolean>(true);
 setModalSpinnerToFalse: boolean;
+paginationInfo: PaginationInfo;
 @ViewChild(AddGradeModalComponent, {static : true}) modalComponent: AddGradeModalComponent;
   constructor(private subjectService: SubjectsService,
               private userService: UserService,
@@ -32,22 +34,27 @@ setModalSpinnerToFalse: boolean;
   ngOnInit() {
 
     const userID = this.userService.currentUser().id;
+    this.getCourses(userID);
 
-    this.subjectService.GetSubjects(userID)
-      .pipe(
-        finalize(() => this.isLoading$.next(false))
-      )
-      .subscribe((response: Array<Subject>) => {
-        this.courses = response;
-      },
-      error => {
-        if (error === 'Unknown Error') {
-          this.notifierService.notify('error', 'something went wrong... please try again later');
-        }
-        else {
-          this.notifierService.notify('error', error.errorMessage);
-        }
-      });
+  }
+
+
+  getCourses(userID: string, pageNumber?: number, pageSize?: number) {
+    this.subjectService.GetSubjects(userID, pageNumber, pageSize)
+    .pipe(
+      finalize(() => this.isLoading$.next(false))
+    )
+    .subscribe((response: PaginatedResult<Subject>) => {
+      this.courses = response.result;
+      this.paginationInfo = response.paginationInfo;
+    },
+    error => {
+      if (error === 'Unknown Error') {
+        this.notifierService.notify('error', 'something went wrong... please try again later');
+      } else {
+        this.notifierService.notify('error', error.errorMessage);
+      }
+    });
   }
 
   addGrade(subject: Subject) {
@@ -90,5 +97,13 @@ setModalSpinnerToFalse: boolean;
       this.notifierService.notify('error', error.errorMessage);
     });
 
+  }
+
+
+  pageChanged(data: {page: number, itemsPerPage: number}) {
+    this.paginationInfo.currentPage = data.page;
+    console.log(data);
+    const userID = this.userService.currentUser().id;
+    this.getCourses(userID, data.page, data.itemsPerPage);
   }
 }

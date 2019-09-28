@@ -1,3 +1,4 @@
+import { PaginatedResult, PaginationInfo } from './../../../../Models/PaginationInfo';
 import { BehaviorSubject } from 'rxjs';
 import { Grade } from './../../../../Models/Grade';
 import { UserService } from './../../../../Core/Services/user.service';
@@ -16,6 +17,7 @@ import { finalize } from 'rxjs/operators';
 export class CoursesGradesComponent implements OnInit {
   coursesGrades: Array<SubjectGrades>;
   isLoading$ = new BehaviorSubject<boolean>(true);
+  paginationInfo: PaginationInfo;
 
   constructor(private subjectService: SubjectsService,
               private notifierService: NotifierService,
@@ -24,13 +26,19 @@ export class CoursesGradesComponent implements OnInit {
   ngOnInit() {
 
     const userID = this.userService.currentUser().id;
+    this.GetSubjectGrades(userID);
 
-    this.subjectService.GetSubjectGrades(userID)
+  }
+
+
+  GetSubjectGrades(userID: string, pageNumber?: number, pageSize?: number) {
+    this.subjectService.GetSubjectGrades(userID, pageNumber, pageSize)
       .pipe(
         finalize(() => this.isLoading$.next(false))
       )
-      .subscribe((response: Array<SubjectGrades>) => {
-        this.coursesGrades = response;
+      .subscribe((response: PaginatedResult<SubjectGrades>) => {
+        this.coursesGrades = response.result;
+        this.paginationInfo = response.paginationInfo;
         //this.parsePieChartData(([].concat(...[coursesGradesRes])));
       },
         error => {
@@ -43,8 +51,12 @@ export class CoursesGradesComponent implements OnInit {
         });
   }
 
-
-
+  pageChanged(data: {page: number, itemsPerPage: number}) {
+    this.paginationInfo.currentPage = data.page;
+    console.log(data);
+    const userID = this.userService.currentUser().id;
+    this.GetSubjectGrades(userID, data.page, data.itemsPerPage);
+  }
 
   getGradeClasses(grade: number) {
     if (grade >= 5.00) {

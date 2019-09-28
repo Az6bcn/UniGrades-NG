@@ -14,6 +14,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewCourseComponent } from './Components/new-course/new-course.component';
 import {SelectModule} from 'ng-select';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+
 
 @NgModule({
   imports: [
@@ -25,7 +27,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     ReactiveFormsModule,
     SelectModule,
     BsDatepickerModule.forRoot(),
-
+    PaginationModule
   ],
   declarations: [
     CoursesComponent,

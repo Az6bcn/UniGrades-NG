@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 
 
@@ -49,6 +50,7 @@ export function tokenGetter() {
     AccordionModule.forRoot(),
     BrowserAnimationsModule,
     ModalModule.forRoot(),
+    PaginationModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
