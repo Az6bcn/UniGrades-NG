@@ -20,7 +20,7 @@ export class AddGradeModalComponent implements OnInit {
       this.modalRef.hide();
     }
   }
-  private modalRef: BsModalRef;
+  modalRef: BsModalRef;
   gradeFormGroup: FormGroup;
   subjectName: string;
   @ViewChild('template', {static: true}) template: TemplateRef<any>;

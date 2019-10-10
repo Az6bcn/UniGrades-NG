@@ -15,6 +15,7 @@ import { NewCourseComponent } from './Components/new-course/new-course.component
 import {SelectModule} from 'ng-select';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { EditCourseComponent } from './Components/edit-course/edit-course.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
     CoursesGradesItemComponent,
     AddGradeModalComponent,
     NewCourseComponent,
+    EditCourseComponent
   ]
 })
 export class SubjectModule { }

@@ -102,7 +102,6 @@ paginationInfo: PaginationInfo;
 
   pageChanged(data: {page: number, itemsPerPage: number}) {
     this.paginationInfo.currentPage = data.page;
-    console.log(data);
     const userID = this.userService.currentUser().id;
     this.getCourses(userID, data.page, data.itemsPerPage);
   }
