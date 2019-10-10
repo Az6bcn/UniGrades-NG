@@ -4,15 +4,16 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 trigger:
-- master
+- develop
 
 pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: UseNode@1
+- task: NodeTool@0
   inputs:
-    versionSpec: '10.x'
+    versionSpec: '12.x'
+    displayName: 'Install Node.js'
 
 - task: Npm@1
   displayName: 'npm install'
@@ -20,7 +21,7 @@ steps:
     command: 'install'
 
 
-- task: Npm@1
-  inputs:
-    command: 'custom'
-    customCommand: 'run build -- --prod'
+- script: |
+    npm install -g @angular/cli
+    npm install
+    ng build --prod
