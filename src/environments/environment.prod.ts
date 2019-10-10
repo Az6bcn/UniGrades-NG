@@ -13,4 +13,5 @@ export const environment = {
       loadUserInfo: true,
       automaticSilentRenew: true,
       scope: 'openid profile unigradesapi.full_access' // Scopes being requested from Identity Server i.e OIDC/OAuth2 provider.
+  }
 };
