@@ -32,4 +32,8 @@ export class LogInComponent implements OnInit {
   getLoggedInUser(): AppUser | null {
     return this.userService.currentUser();
   }
+
+  register() {
+
+  }
 }
