@@ -24,3 +24,12 @@
     </ng-container>
   </div>
 </div>
+
+
+<ng-container *ngIf='courses === undefined'>
+    <div class="container-info">
+        <alert type="info" class="content">
+            <strong>Oh snap!</strong> No courses found for the current semester. Please create a new course with the icon <i class="fas fa-plus fa-1x mr-5 "></i>
+        </alert>
+    </div>
+    </ng-container>

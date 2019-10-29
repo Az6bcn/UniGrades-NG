@@ -5,12 +5,14 @@ import { PieChartComponent } from './Components/pie-chart/pie-chart.component';
 import {ChartModule} from 'primeng/chart';
 import { CustomCardComponent } from './Components/custom-card/custom-card.component';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { AlertModule } from 'ngx-bootstrap/alert';
 
 @NgModule({
   imports: [
     CommonModule,
     ChartModule,
-    TooltipModule.forRoot()
+    TooltipModule.forRoot(),
+    AlertModule.forRoot()
 
   ],
   declarations: [

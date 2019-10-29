@@ -6,7 +6,7 @@
   <app-spinner></app-spinner>
 </ng-container>
 
-<ng-container *ngIf='!(isLoading$ | async)'>
+<ng-container *ngIf='!(isLoading$ | async) && coursesGrades && coursesGrades.length > 0'>
 <div class='container container-accordion-margin'>
   <ng-container *ngFor='let courseGrade of coursesGrades'>
     <accordion [isAnimated]="true">
@@ -41,3 +41,11 @@
 </div>
 </ng-container>
 
+
+<ng-container *ngIf='!(isLoading$ | async) && coursesGrades === undefined'>
+  <div class="container-info">
+      <alert type="info" class="content">
+          <strong>Oh snap!</strong> No courses found. Please create a new course in the Courses tab.
+      </alert>
+  </div>
+</ng-container>

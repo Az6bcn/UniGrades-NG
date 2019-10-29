@@ -1,3 +1,10 @@
 .card-margin{
   margin-right: 7%
 }
+
+.content{
+  text-align: center;
+}
+.container-info{
+  padding: 20%;
+}

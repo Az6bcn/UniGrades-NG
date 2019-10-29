@@ -16,6 +16,7 @@ import {SelectModule} from 'ng-select';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { EditCourseComponent } from './Components/edit-course/edit-course.component';
+import { AlertModule } from 'ngx-bootstrap/alert';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { EditCourseComponent } from './Components/edit-course/edit-course.compon
     ReactiveFormsModule,
     SelectModule,
     BsDatepickerModule.forRoot(),
-    PaginationModule
+    PaginationModule,
+    AlertModule.forRoot()
   ],
   declarations: [
     CoursesComponent,

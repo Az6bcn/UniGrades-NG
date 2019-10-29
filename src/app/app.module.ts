@@ -19,6 +19,7 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 
 
+
 export function tokenGetter() {
   return localStorage.getItem('token');
 }
@@ -37,7 +38,7 @@ export function tokenGetter() {
     NotifierModule, // angular notifier
     JwtModule.forRoot({
       config: {
-        tokenGetter: tokenGetter,
+        tokenGetter,
         whitelistedDomains: [environment.baseURL_String],
         skipWhenExpired: true,
         throwNoTokenError: true,
@@ -50,7 +51,7 @@ export function tokenGetter() {
     AccordionModule.forRoot(),
     BrowserAnimationsModule,
     ModalModule.forRoot(),
-    PaginationModule.forRoot(),
+    PaginationModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

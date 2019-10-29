@@ -5,7 +5,8 @@
       (addgrade)='addGrade($event)'
       (editcourse)='editCourse($event)'
       (deletecourse)='deleteCourse($event)'
-      (addcourse)='addCourse($event)'></app-custom-card>
+      (addcourse)='addCourse($event)'>
+    </app-custom-card>
 
       <div class="row mt-5">
         <div class="col-xs-12 col-12">
@@ -28,5 +29,16 @@
 
 <app-add-grade-modal (gradeFormValue)='saveGrade($event)' [isLoaded]='setModalSpinnerToFalse'></app-add-grade-modal>
 
+<ng-container *ngIf='!(isLoading$ | async) && courses === undefined'>
+<div class="container-info">
+    <app-custom-card
+    [courses]='courses'
+    (addgrade)='addGrade($event)'
+    (editcourse)='editCourse($event)'
+    (deletecourse)='deleteCourse($event)'
+    (addcourse)='addCourse($event)'>
+  </app-custom-card>
 
+</div>
+</ng-container>
 
