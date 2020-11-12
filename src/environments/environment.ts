@@ -2,15 +2,15 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-const authUrl = 'http://azeezvm.com:5000';
-const apiUrl = 'http://azeezvm.com:5001/api';
+const authUrl = 'https://localhost:5001';
+const apiUrl = 'https://localhost:5003/api';
 
 // 172.16.172.157
 export const environment = {
   production: false,
   authBaseURL: authUrl,
   baseURL: apiUrl,
-  baseURL_String: 'azeezvm.com:5001',
+  baseURL_String: 'localhost:5001',
   oidcClientSettings: {
     authority: authUrl, // AuthServer URL, Identity Server URL (OIDC/OAuth2 provider)
       client_id: 'unigrades-ng001', // client id as registered with Identity Server i.e OIDC/OAuth2 provider.

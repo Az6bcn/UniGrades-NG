@@ -39,7 +39,7 @@ export class CoursesGradesComponent implements OnInit {
       .subscribe((response: PaginatedResult<SubjectGrades>) => {
         this.coursesGrades = response.result;
         this.paginationInfo = response.paginationInfo;
-        //this.parsePieChartData(([].concat(...[coursesGradesRes])));
+        // this.parsePieChartData(([].concat(...[coursesGradesRes])));
       },
         error => {
           if (error === 'Unknown Error') {
