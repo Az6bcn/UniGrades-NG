@@ -35,7 +35,7 @@ export function tokenGetter() {
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    NotifierModule, // angular notifier
+    NotifierModule, // angular notifier // TODO Remove Angular-Notifier, not compatible with >v7
     JwtModule.forRoot({
       config: {
         tokenGetter,

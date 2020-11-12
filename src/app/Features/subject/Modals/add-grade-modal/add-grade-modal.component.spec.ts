@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { AddGradeModalComponent } from './add-grade-modal.component';
 
@@ -6,7 +6,7 @@ describe('AddGradeModalComponent', () => {
   let component: AddGradeModalComponent;
   let fixture: ComponentFixture<AddGradeModalComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ AddGradeModalComponent ]
     })

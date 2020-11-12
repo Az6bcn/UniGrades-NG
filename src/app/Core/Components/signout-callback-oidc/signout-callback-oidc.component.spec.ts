@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { SignoutCallbackOidcComponent } from './signout-callback-oidc.component';
 
@@ -6,7 +6,7 @@ describe('SignoutCallbackOidcComponent', () => {
   let component: SignoutCallbackOidcComponent;
   let fixture: ComponentFixture<SignoutCallbackOidcComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ SignoutCallbackOidcComponent ]
     })
