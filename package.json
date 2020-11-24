@@ -26,7 +26,7 @@
     "chart.js": "^2.8.0",
     "moment": "^2.24.0",
     "ng-select": "^1.0.2",
-    "ngx-bootstrap": "^5.1.0",
+    "ngx-bootstrap": "^6.2.0",
     "oidc-client": "^1.8.2",
     "primeng": "^8.0.1",
     "rxjs": "~6.6.3",
