@@ -34,8 +34,8 @@ export class AuthenticationService {
     this.user = await this._usermanager.signinRedirectCallback();
 
     if (this.user) {
-      const token = this.user.access_token;
-      localStorage.setItem('token', token);
+      const { access_token } = this.user;
+      localStorage.setItem('token', access_token);
       this.isLoggedIn.next(true);
     }
     return this.user;

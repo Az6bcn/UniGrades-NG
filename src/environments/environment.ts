@@ -15,7 +15,7 @@ export const environment = {
     authority: authUrl, // AuthServer URL, Identity Server URL (OIDC/OAuth2 provider)
       client_id: 'unigrades-ng001', // client id as registered with Identity Server i.e OIDC/OAuth2 provider.
       redirect_uri: 'http://localhost:4200/auth-callback', // The redirect URI to receive a response from Identity Server.
-      response_type: 'id_token token', // The type of response desired from Identity Server i.e OIDC/OAuth2 provider.
+    response_type: 'code', // The type of response desired from Identity Server i.e OIDC/OAuth2 provider.
       post_logout_redirect_uri: 'http://localhost:4200/signout-callback-oidc',
       filterProtocolClaims: false,
       loadUserInfo: true,
