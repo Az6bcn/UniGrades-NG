@@ -39,7 +39,6 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter,
-        whitelistedDomains: [environment.baseURL_String],
         skipWhenExpired: true,
         throwNoTokenError: true,
         headerName: 'Authorization',
