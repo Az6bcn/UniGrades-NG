@@ -17,7 +17,12 @@ import { AboutComponent } from './about/about.component';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 
-
+declare module '@angular/core' {
+  interface ModuleWithProviders<T = any> {
+    ngModule: Type<T>;
+    providers?: Provider[];
+  }
+}
 
 
 export function tokenGetter() {
