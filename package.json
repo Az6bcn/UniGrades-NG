@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "startssl": "ng serve --ssl",
-    "dockerstart": "ng serve --host 0.0.0.0 --poll 1000"
+    "dockerstart": "ng serve --configuration=container --host 0.0.0.0 --poll 1000"
   },
   "private": true,
   "dependencies": {
