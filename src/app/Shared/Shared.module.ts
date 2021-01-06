@@ -6,19 +6,21 @@ import {ChartModule} from 'primeng/chart';
 import { CustomCardComponent } from './Components/custom-card/custom-card.component';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { AlertModule } from 'ngx-bootstrap/alert';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   imports: [
     CommonModule,
     ChartModule,
     TooltipModule.forRoot(),
-    AlertModule.forRoot()
-
+    AlertModule.forRoot(),
+    NgxChartsModule
   ],
   declarations: [
     SpinnerComponent,
     PieChartComponent,
-    CustomCardComponent],
+    CustomCardComponent,
+  ],
   exports: [SpinnerComponent, PieChartComponent, CustomCardComponent]
 })
 export class SharedModule { }

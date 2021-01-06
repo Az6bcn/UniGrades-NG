@@ -1,7 +1,13 @@
 <div class="">
-  <p-chart
-    type="pie"
-    [data]="dataPie"
-    [responsive]='true'
-  ></p-chart>
+<ngx-charts-pie-chart
+  [view]='view'
+  [scheme]="colorScheme"
+  [results]="dataPie"
+  [gradient]="gradient"
+  [legend]="showLegend"
+  [legendPosition]="legendPosition"
+  [labels]="showLabels"
+  [doughnut]="isDoughnut"
+>
+</ngx-charts-pie-chart>
 </div>
