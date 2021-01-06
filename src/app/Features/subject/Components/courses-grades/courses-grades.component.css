@@ -32,10 +32,10 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  overflow-x: scroll;
+  /* overflow-x: auto; */
 }
 
 .flex-container-wrap{
   align-self: center;
-  overflow-x: scroll;
+  /* overflow-x: auto; */
 }
