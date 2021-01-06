@@ -35,7 +35,7 @@ export class NewCourseComponent implements OnInit {
               private cachedService: CacheService) { }
 
   ngOnInit() {
-    const id = this.activatedRoute.snapshot.params['id'];
+    const id = this.activatedRoute.snapshot.params.id;
 
     if (id > 0) {
       this.subjectService.GetSubjectById(id)
@@ -49,7 +49,7 @@ export class NewCourseComponent implements OnInit {
                 courseYear: moment(resp.courseYear).format('MM/DD/YYYY'),
                 totalPercentage: resp.totalPercentage,
                 userId: resp.userId,
-                AcademicSemesterId: resp.academicSemesterId.toString()
+            academicSemesterId: resp.academicSemesterId.toString()
               });
         });
     }
@@ -67,8 +67,13 @@ export class NewCourseComponent implements OnInit {
       this.editCourse(course);
       return;
     }
-    course.courseYear = moment(course.courseYear).format('MM-DD-YYYY');
-    course.academicSemesterId = (course.academicSemesterId as number);
+    course.courseYear = moment(course.courseYear).format();
+    course.academicSemesterId = +course.academicSemesterId;
+    course.totalPercentage = +course.totalPercentage;
+    course.id = 0;
+
+    console.log(course);
+
     this.subjectService.AddSubject(course)
       .pipe(
         finalize(() => this.isLoading$.next(false))
@@ -123,12 +128,12 @@ export class NewCourseComponent implements OnInit {
       courseYear: ['', Validators.required],
       totalPercentage: ['', Validators.required],
       userId: [this.gerUserId(), Validators.required],
-      AcademicSemesterId: ['', Validators.required]
+      academicSemesterId: ['', Validators.required]
     });
   }
 
   get subjectname(): AbstractControl { return this.courseForm.get('subjectName'); }
   get courseyear(): AbstractControl { return this.courseForm.get('courseYear'); }
   get totalpercentage(): AbstractControl { return this.courseForm.get('totalPercentage'); }
-  get academicsemester(): AbstractControl { return this.courseForm.get('AcademicSemesterId'); }
+  get academicsemester(): AbstractControl { return this.courseForm.get('academicSemesterId'); }
 }

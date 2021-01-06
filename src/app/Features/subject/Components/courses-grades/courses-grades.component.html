@@ -16,11 +16,15 @@
             <div *ngIf='courseGrade.grades.length > 0' [ngClass]='getGradeClasses(courseGrade.average)'> {{courseGrade.average}}
               <i [ngClass]='getFontIconClasses(courseGrade.average)'></i>
             </div>
+              <div class='flex-container-wrap'>
+                <app-pie-chart
+                  class='pie-chart'
+                  [data]='courseGrade.grades'
+                >
+                </app-pie-chart>
+              </div>
           </div>
-          <div class='flex-container-wrap'>
-            <app-pie-chart class='pie-chart' [data]='courseGrade.grades'>
-            </app-pie-chart>
-          </div>
+
       </accordion-group>
     </accordion>
   </ng-container>

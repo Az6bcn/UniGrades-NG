@@ -3,7 +3,12 @@
 </ng-container>
 
 <div class='container d-flex justify-content-center' *ngIf ='!(isLoading$ | async)'>
-  <form [formGroup]="courseForm">
+  <form
+    [formGroup]="courseForm"
+    class="card"
+    style="width: 18rem;"
+  >
+    <div class="card-body">
       <h3 >{{title}}</h3>
     <div class="form-group">
       <label for="coursename">Course Name</label>
@@ -39,7 +44,10 @@
 
     <div class="form-group ">
       <label for="academicsemester">Academic Semester</label>
-      <ng-select formControlName="AcademicSemesterId"  placeholder="Select" id='academicsemester'
+      <ng-select
+        formControlName="academicSemesterId"
+        placeholder="Select"
+        id='academicsemester'
         [options]="academicSemestersOptions" [allowClear]="true">
       </ng-select>
       <!-- Control Errors -->
@@ -55,6 +63,7 @@
       <button type="button" class="btn btn-danger text-center buttons-margins" (click)='cancel()'>Cancel</button>
       <button type="button" class="btn btn-primary text-center" [disabled]='isValid(courseForm)'
         (click)='save(courseForm.value)'>Save</button>
+    </div>
     </div>
   </form>
 </div>

@@ -1,8 +1,14 @@
-<div class='container'>
-    <a (click)='addCourse()'> <i class="fas fa-plus fa-1x float-right" tooltip="Add new Course" ></i></a>
-  <div class='row'>
+<div class='flex-container'>
+  <a (click)='addCourse()'>
+    <i
+      class="fas fa-plus fa-2x float-right"
+      tooltip="Add new Course"
+    >
+    </i>
+  </a>
+
     <ng-container *ngFor='let course of courses'>
-      <div class="card border-primary text-white bg-dark mb-3 card-margin" style="max-width: 18rem;">
+      <div class="card border-primary text-white bg-dark mb-3 card-margin card-width">
         <div class="card-header">
           <h5 class="card-title">{{course.subjectName}}</h5>
         </div>
@@ -16,14 +22,22 @@
           <p class="card-text text-center">
             Current Average : {{course.currentAverage}}
           </p>
-          <a tooltip="Add Grade" (click)='addGrade(course)'> <i class="fas fa-plus fa-2x mr-5 "></i></a>
-          <a tooltip="Edit Course" (click)='editCourse(course)'><i class="fas fa-edit fa-2x mr-5"></i></a>
-          <a tooltip="Delete Course" (click)='deleteCourse(course.id)'><i class="fas fa-trash fa-2x mr-5"></i></a>
-        </div>
-      </div>
-    </ng-container>
-  </div>
-</div>
+          <a
+            tooltip="Add Grade"
+            (click)='addGrade(course)'
+          > <i class="fas fa-plus fa-2x mr-2 "></i></a>
+          <a
+            tooltip="Edit Course"
+            (click)='editCourse(course)'
+          ><i class="fas fa-edit fa-2x mr-2"></i></a>
+          <a
+            tooltip="Delete Course"
+            (click)='deleteCourse(course.id)'
+          ><i class="fas fa-trash fa-2x mr-2"></i></a>
+          </div>
+          </div>
+          </ng-container>
+          </div>
 
 
 <ng-container *ngIf='courses === undefined'>
