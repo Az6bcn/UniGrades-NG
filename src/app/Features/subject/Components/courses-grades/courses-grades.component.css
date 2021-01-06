@@ -26,3 +26,15 @@
 .container-info{
   padding: 25%;
 }
+
+.flex-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.flex-container-wrap{
+  align-self: center;
+  overflow-x: scroll;
+}

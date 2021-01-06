@@ -7,28 +7,25 @@
 </ng-container>
 
 <ng-container *ngIf='!(isLoading$ | async) && coursesGrades && coursesGrades.length > 0'>
-<div class='container container-accordion-margin'>
+<div class=''>
   <ng-container *ngFor='let courseGrade of coursesGrades'>
     <accordion [isAnimated]="true">
       <accordion-group class='font-weight-bold' heading='{{courseGrade.subjectName}}'>
-        <div class='row'>
-          <div class='col-sm-5'>
+        <div class='flex-container'>
             <app-courses-grade-list [data]='courseGrade.grades'></app-courses-grade-list>
             <div *ngIf='courseGrade.grades.length > 0' [ngClass]='getGradeClasses(courseGrade.average)'> {{courseGrade.average}}
               <i [ngClass]='getFontIconClasses(courseGrade.average)'></i>
             </div>
           </div>
-          <div class='col-sm-7'>
+          <div class='flex-container-wrap'>
             <app-pie-chart class='pie-chart' [data]='courseGrade.grades'>
             </app-pie-chart>
           </div>
-        </div>
       </accordion-group>
     </accordion>
   </ng-container>
 
-<div class="row mt-5">
-  <div class="col-xs-12 col-12">
+<div class="flex-container mt-5">
     <pagination [totalItems]='paginationInfo.totalItems'
                 [rotate]="true"
                 [maxSize]="paginationInfo.totalPages"
@@ -36,7 +33,6 @@
                 [(ngModel)]='paginationInfo.currentPage'
                 (pageChanged)='pageChanged($event)'>
     </pagination>
-  </div>
 </div>
 </div>
 </ng-container>
