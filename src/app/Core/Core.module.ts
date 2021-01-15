@@ -9,13 +9,14 @@ import { RegisterComponent } from './Components/register/register.component';
 import { LogInComponent } from './Components/log-in-out/log-in.component';
 import { AuthCallbackComponent } from './Components/auth-callback/auth-callback.component';
 import { SignoutCallbackOidcComponent } from './Components/signout-callback-oidc/signout-callback-oidc.component';
-
+import { CollapseModule } from 'ngx-bootstrap/collapse';
 
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
-    RouterModule
+    RouterModule,
+    CollapseModule
   ],
   declarations: [
     NavBarComponent,

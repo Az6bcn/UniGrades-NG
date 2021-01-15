@@ -1,30 +1,61 @@
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary static-top">
+<nav class="navbar navbar-expand-md navbar-dark bg-primary static-top">
   <div class="container">
     <a class="navbar-brand" [routerLink]="['/home']">UniGrades</a>
-    <ng-container *ngIf="isLoggedIn()">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item ">
-          <a class="nav-link" routerLink='courses/courses-grades' routerLinkActive="active">Courses-Grades
-          </a>
-        </li>
-        <li class="nav-item ">
-          <a class="nav-link" routerLink='courses/my-courses' routerLinkActive="active">Courses
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink='contact' routerLinkActive="active">Contact</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink='/about' routerLinkActive="active">About</a>
-        </li>
-      </ul>
-    </ng-container>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-      aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive"></div>
-    <app-log-in></app-log-in>
-  </div>
+<button
+  class="navbar-toggler"
+  type="button"
+  data-toggle="collapse"
+  data-target=".navbar-collapse"
+  aria-controls="navbarResponsive"
+  aria-label="Toggle navigation"
+  (click)="isCollapsed = !isCollapsed"
+  [attr.aria-expanded]="!isCollapsed"
+>
+  <span class="navbar-toggler-icon"></span>
+</button>
+<div
+  class="collapse navbar-collapse"
+  id="navbarResponsive"
+  [collapse]="isCollapsed"
+  [isAnimated]="true"
+>
+
+  <ng-container *ngIf="isLoggedIn()">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item ">
+      <a
+        class="nav-link"
+        routerLink='courses/courses-grades'
+        routerLinkActive="active"
+      >Courses-Grades
+    </a>
+  </li>
+  <li class="nav-item ">
+    <a
+      class="nav-link"
+      routerLink='courses/my-courses'
+      routerLinkActive="active"
+    >Courses
+  </a>
+</li>
+<li class="nav-item">
+  <a
+    class="nav-link"
+    routerLink='contact'
+    routerLinkActive="active"
+  >Contact</a>
+</li>
+<li class="nav-item">
+  <a
+    class="nav-link"
+    routerLink='/about'
+    routerLinkActive="active"
+  >About</a>
+</li>
+</ul>
+</ng-container>
+<app-log-in></app-log-in>
+</div>
+</div>
 </nav>

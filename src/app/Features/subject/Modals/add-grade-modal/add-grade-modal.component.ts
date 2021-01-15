@@ -1,9 +1,9 @@
+import { BehaviorSubject } from 'rxjs';
 import { Grade } from 'src/app/Models/Grade';
 import { Subject } from './../../../../Models/Subject';
 import { Component, OnInit, TemplateRef, ViewChild, Output, EventEmitter, Input } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { FormBuilder, Validators, FormGroup, AbstractControl } from '@angular/forms';
-import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 
 @Component({
   selector: 'app-add-grade-modal',

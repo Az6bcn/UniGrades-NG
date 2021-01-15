@@ -16,6 +16,7 @@ import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 
+
 // TODO Remove code block:angular-notifier was throwing, Generic type 'ModuleWithProviders<T>' requires 1 type argument(s)
 // and failing in pipeline.
 declare module '@angular/core' {
